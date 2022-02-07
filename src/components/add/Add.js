@@ -1,24 +1,45 @@
-import React from 'react'
+import React, { useState } from "react";
 
-export default function Add() {
+export default function Add(props) {
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+  
+  const submit = (e)=>{
+    e.preventDefault();
+    if(!title || !desc ) {
+      alert('Title or Description cannot be blank')
+    }
+    props.addTodo(title, desc);
+  }
   return (
-    <div className='container'>
-      <form>
-  <div className="form-group">
-    <label htmlFor="exampleInputEmail1">Email address</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div className="form-group">
-    <label htmlFor="exampleInputPassword1">Password</label>
-    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
-  </div>
-  <div className="form-group form-check">
-    <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-    <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" className="btn btn-primary">Submit</button>
-</form>
+    <div className="container my-3">
+      <form onSubmit={submit}>
+        <div className="form-group">
+          <input
+            value={title}
+            type="text"
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+            className="form-control my-3"
+            placeholder="Enter Title"
+          />
+        </div>
+        <div className="form-group">
+          <input
+            value={desc}
+            type="text"
+            onChange={(e) => {
+              setDesc(e.target.value);
+            }}
+            className="form-control my-3"
+            placeholder="Enter Discription"
+          />
+        </div>
+        <button type="submit" className="btn btn-success">
+          Submit
+        </button>
+      </form>
     </div>
-  )
+  );
 }

@@ -33,11 +33,19 @@ function App() {
       dsce: "You need to go to the Home to get this job done 2",
     },
   ]);
-
+  const addTodo = (title, desc) => {
+    let sno = todos[todos.length - 1].sno + 1;
+    const myTodo = {
+      sno: sno,
+      title: title,
+      desc: desc,
+    };
+    setTodos([...todos, myTodo]);
+  };
   return (
     <div id="container">
       <Topbar logo={logo} />
-      <Add/>
+      <Add addTodo={addTodo} />
       <Todos todos={todos} onDelete={onDelete} />
     </div>
   );

@@ -20,26 +20,32 @@ function App() {
     {
       sno: 1,
       title: "Go to Market",
-      dsce: "You need to go to the Market to get this job done",
+      desc: "You need to go to the Market to get this job done",
     },
     {
       sno: 2,
       title: "Go to Mall",
-      dsce: "You need to go to the Mall to get this job done 1",
+      desc: "You need to go to the Mall to get this job done 1",
     },
     {
       sno: 3,
       title: "Go to Home",
-      dsce: "You need to go to the Home to get this job done 2",
+      desc: "You need to go to the Home to get this job done 2",
     },
   ]);
   const addTodo = (title, desc) => {
-    let sno = todos[todos.length - 1].sno + 1;
+    let sno;
+    if (todos.length == 0) {
+      sno = 0;
+    } else {
+      sno = todos[todos.length - 1].sno + 1;
+    }
     const myTodo = {
       sno: sno,
       title: title,
       desc: desc,
     };
+    console.log(myTodo);
     setTodos([...todos, myTodo]);
   };
   return (

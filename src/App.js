@@ -7,9 +7,6 @@ import Add from "./components/add/Add";
 
 function App() {
   const onDelete = (todo) => {
-    let index = todos.indexOf(todo);
-    todos.splice(index, 1);
-
     setTodos(
       todos.filter((e) => {
         return e !== todo;
@@ -17,21 +14,7 @@ function App() {
     );
   };
   const [todos, setTodos] = useState([
-    {
-      sno: 1,
-      title: "Go to Market",
-      desc: "You need to go to the Market to get this job done",
-    },
-    {
-      sno: 2,
-      title: "Go to Mall",
-      desc: "You need to go to the Mall to get this job done 1",
-    },
-    {
-      sno: 3,
-      title: "Go to Home",
-      desc: "You need to go to the Home to get this job done 2",
-    },
+    
   ]);
   const addTodo = (title, desc) => {
     let sno;
@@ -51,6 +34,7 @@ function App() {
   return (
     <div id="container">
       <Topbar logo={logo} />
+      <h1 className="text-center my5">Add And Delete Todo Program</h1>
       <Add addTodo={addTodo} />
       <Todos todos={todos} onDelete={onDelete} />
     </div>

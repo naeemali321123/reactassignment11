@@ -3,13 +3,14 @@ import React, { useState } from "react";
 export default function Add(props) {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
+  const [image, setImage] = useState("");
 
   const submit = (e) => {
     e.preventDefault();
     if (!title || !desc) {
       alert("Title or Description cannot be blank");
     } else {
-      props.addTodo(title, desc);
+      props.addTodo(title, desc, image);
     }
   };
   return (

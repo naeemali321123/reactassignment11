@@ -1,4 +1,3 @@
-import "./App.css";
 import Topbar from "./components/topbar/Topbar";
 import logo from "./images/logo.png";
 import Todos from "./components/todos/Todos";

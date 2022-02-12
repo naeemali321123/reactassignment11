@@ -39,7 +39,7 @@ export default function Add(props) {
           />
         </div>
         <button type="submit" className="btn btn-success">
-          Submit
+          Add Todo
         </button>
       </form>
     </div>

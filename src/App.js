@@ -1,5 +1,4 @@
 import Topbar from './components/topbar/Topbar';
-import logo from './images/logo.png';
 import Todos from './components/todos/Todos';
 import { useEffect, useState } from 'react';
 import Add from './components/add/Add';
@@ -43,7 +42,7 @@ function App() {
 	);
 	return (
 		<div id="container">
-			<Topbar logo={logo} />
+			<Topbar />
 			<h1 className="text-center my5">Add And Delete Todo Program</h1>
 			<Add addTodo={addTodo} />
 			<Todos todos={todos} onDelete={onDelete} />

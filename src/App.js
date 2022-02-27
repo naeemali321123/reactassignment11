@@ -3,6 +3,7 @@ import logo from './images/logo.png';
 import Todos from './components/todos/Todos';
 import { useEffect, useState } from 'react';
 import Add from './components/add/Add';
+import Footer from './components/footer/Footer';
 
 function App() {
 	let initTodo;
@@ -19,7 +20,7 @@ function App() {
 		);
 		localStorage.setItem('todos', JSON.stringify(todos));
 	};
-	const [ todos, setTodos ] = useState(initTodo);
+	const [todos, setTodos] = useState(initTodo);
 	const addTodo = (title, desc) => {
 		let sno;
 		if (todos.length == 0) {
@@ -32,13 +33,13 @@ function App() {
 			title: title,
 			desc: desc
 		};
-		setTodos([ ...todos, myTodo ]);
+		setTodos([...todos, myTodo]);
 	};
 	useEffect(
 		() => {
 			localStorage.setItem('todos', JSON.stringify(todos));
 		},
-		[ todos ]
+		[todos]
 	);
 	return (
 		<div id="container">
@@ -46,6 +47,7 @@ function App() {
 			<h1 className="text-center my5">Add And Delete Todo Program</h1>
 			<Add addTodo={addTodo} />
 			<Todos todos={todos} onDelete={onDelete} />
+			<Footer />
 		</div>
 	);
 }
